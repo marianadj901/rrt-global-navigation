@@ -245,6 +245,6 @@ Projeto desenvolvido para a disciplina de **Robótica Móvel**.
 
 ---
 
-# 📄 Licença
+# 📌 Observação
 
-Este projeto foi desenvolvido exclusivamente para fins acadêmicos.
+Este projeto foi desenvolvido para fins acadêmicos como parte da disciplina de Robótica Móvel do programa Novo Ensino Suplementar (NES), da Universidade Federal de Alagoas (UFAL).
