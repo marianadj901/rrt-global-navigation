@@ -13,12 +13,10 @@ Implementação do algoritmo <b>Rapidly-exploring Random Tree (RRT)</b> para pla
 <p align="center">
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge&logo=python)
-
 ![ROS2](https://img.shields.io/badge/ROS2-Humble-22314E?style=for-the-badge)
-
 ![RoboticsAcademy](https://img.shields.io/badge/RoboticsAcademy-JdeRobot-orange?style=for-the-badge)
-
 ![Status](https://img.shields.io/badge/Status-Concluído-success?style=for-the-badge)
+[![Release](https://img.shields.io/github/v/release/marianadj901/rrt-global-navigation?style=for-the-badge)](https://github.com/marianadj901/rrt-global-navigation/releases/latest)
 
 </p>
 
@@ -28,7 +26,7 @@ Implementação do algoritmo <b>Rapidly-exploring Random Tree (RRT)</b> para pla
 
 Este projeto foi desenvolvido para a disciplina de **Robótica Móvel** e consiste na implementação do algoritmo **Rapidly-exploring Random Tree (RRT)** para planejamento de caminho em ambientes com obstáculos.
 
-O algoritmo recebe um mapa de ocupação, uma posição inicial (*Start*) e uma posição objetivo (*Goal*) e constrói uma árvore de exploração até encontrar uma rota livre de colisões.
+O algoritmo recebe um mapa de ocupação, uma posição inicial (**Start**) e uma posição objetivo (**Goal**) e constrói uma árvore de exploração até encontrar uma rota livre de colisões.
 
 Após encontrar o caminho, o robô percorre os waypoints utilizando um controlador proporcional simples.
 
@@ -40,9 +38,12 @@ Após encontrar o caminho, o robô percorre os waypoints utilizando um controlad
 - Objetivos
 - Funcionamento
 - Estrutura do projeto
-- Resultados
-- Tecnologias utilizadas
+- Navegação
+- Tecnologias
+- Estruturas implementadas
 - Limitações
+- Demonstração
+- Resultado Obtido
 - Autora
 
 ---
@@ -57,7 +58,7 @@ O **Rapidly-exploring Random Tree (RRT)** é um algoritmo de planejamento basead
 - 🦾 Braços robóticos
 - 🚀 Sistemas de navegação
 
-Ao contrário do algoritmo **A\***, o RRT não precisa de um grafo previamente construído.
+Ao contrário do algoritmo **A\***, o RRT não necessita de um grafo previamente construído.
 
 Ele explora o ambiente de forma incremental, criando uma árvore até encontrar uma rota viável.
 
@@ -67,13 +68,13 @@ Ele explora o ambiente de forma incremental, criando uma árvore até encontrar 
 
 O projeto implementa uma versão didática do algoritmo RRT capaz de:
 
-- ✔ Gerar pontos aleatórios no mapa
-- ✔ Utilizar Goal Biasing
-- ✔ Encontrar o nó mais próximo
-- ✔ Expandir a árvore utilizando a função Steer
-- ✔ Detectar colisões
-- ✔ Reconstruir o caminho encontrado
-- ✔ Simular a navegação do robô
+- ✔ Gerar pontos aleatórios no mapa;
+- ✔ Utilizar Goal Biasing;
+- ✔ Encontrar o nó mais próximo;
+- ✔ Expandir a árvore utilizando a função **Steer**;
+- ✔ Detectar colisões;
+- ✔ Reconstruir o caminho encontrado;
+- ✔ Simular a navegação do robô.
 
 ---
 
@@ -126,28 +127,10 @@ rrt-global-navigation/
 
 ├── academy.py
 ├── mapa_com_arvore.png
-├── README.md
-└── relatorio.pdf
-└── gif.gif
+├── gif.gif
+├── relatorio.pdf
+└── README.md
 ```
-
----
-
-# 🖼️ Resultados
-
-Durante a execução são geradas duas visualizações principais.
-
-## 🌳 Árvore de Exploração
-
-Os segmentos verdes representam todos os nós adicionados durante a exploração do ambiente.
-
-## 🔴 Caminho Final
-
-Após alcançar o objetivo, o algoritmo reconstrói o caminho seguindo os ponteiros dos nós pais.
-
-<p align="center">
-<img src="mapa_com_arvore.png" width="850">
-</p>
 
 ---
 
@@ -219,6 +202,7 @@ Durante a execução é possível observar:
 - 🌳 Crescimento da árvore RRT;
 - 🔴 Caminho final encontrado;
 - 🚗 Navegação do robô seguindo a trajetória planejada.
+
 ---
 
 <p align="center">
@@ -227,17 +211,27 @@ Durante a execução é possível observar:
   </a>
 </p>
 
-# 📈 Resultado Obtido
+---
 
-✔ Árvore RRT construída com sucesso.
+# 📊 Resultado Obtido
 
-✔ Caminho livre de colisões encontrado.
+| Métrica | Valor |
+|---------|------:|
+| Algoritmo | RRT |
+| Linguagem | Python |
+| Ambiente | RoboticsAcademy |
+| Área livre | 491045 pixels |
+| Obstáculos | 108955 pixels |
+| Nós do caminho | 73 |
+| Resultado | ✅ Caminho encontrado |
 
-✔ Reconstrução automática da rota.
+### Principais resultados
 
-✔ Navegação completa até o objetivo.
-
-✔ Visualização da árvore e do caminho final.
+- ✔ Árvore RRT construída com sucesso;
+- ✔ Caminho livre de colisões encontrado;
+- ✔ Reconstrução automática da trajetória;
+- ✔ Navegação completa até o objetivo;
+- ✔ Visualização da árvore e do caminho final.
 
 ---
 
@@ -247,7 +241,7 @@ Durante a execução é possível observar:
 
 Projeto desenvolvido para a disciplina de **Robótica Móvel**.
 
-Universidade Federal de Alagoas (UFAL)
+**Universidade Federal de Alagoas (UFAL)**
 
 ---
 
