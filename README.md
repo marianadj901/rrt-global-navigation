@@ -128,6 +128,7 @@ rrt-global-navigation/
 ├── mapa_com_arvore.png
 ├── README.md
 └── relatorio.pdf
+└── gif.gif
 ```
 
 ---
@@ -207,14 +208,17 @@ Essas simplificações tornam o algoritmo mais adequado para fins educacionais.
 
 # 📹 Demonstração
 
-O vídeo do projeto apresenta:
+A animação abaixo mostra a execução completa do algoritmo, incluindo a navegação do robô até o objetivo.
 
-- construção da árvore RRT;
-- caminho encontrado;
-- navegação do robô até o objetivo.
+<p align="center">
+  <img src="gif.gif" width="850" alt="Demonstração da execução do algoritmo RRT">
+</p>
 
-> *(Adicione aqui um GIF da execução futuramente para deixar o repositório ainda mais completo.)*
+Durante a execução é possível observar:
 
+- 🌳 Crescimento da árvore RRT;
+- 🔴 Caminho final encontrado;
+- 🚗 Navegação do robô seguindo a trajetória planejada.
 ---
 
 # 📈 Resultado Obtido
