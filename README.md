@@ -221,6 +221,12 @@ Durante a execução é possível observar:
 - 🚗 Navegação do robô seguindo a trajetória planejada.
 ---
 
+<p align="center">
+  <a href="https://github.com/marianadj901/rrt-global-navigation/releases/latest">
+    ▶️ Assistir ao vídeo completo da execução
+  </a>
+</p>
+
 # 📈 Resultado Obtido
 
 ✔ Árvore RRT construída com sucesso.
