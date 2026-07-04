@@ -1,91 +1,94 @@
-# 🤖 Planejamento de Caminho com RRT (Rapidly-exploring Random Tree)
+<p align="center">
+  <img src="mapa_com_arvore.png" width="900">
+</p>
 
-Implementação do algoritmo **Rapidly-exploring Random Tree (RRT)** desenvolvida para a disciplina de **Robótica Móvel**, utilizando o ambiente **RoboticsAcademy (JdeRobot)**.
+<h1 align="center">
+🤖 Planejamento de Caminho com RRT
+</h1>
 
-O objetivo do projeto é realizar o planejamento de caminho entre uma posição inicial e um objetivo em um ambiente contendo obstáculos, além de simular a navegação do robô seguindo o caminho encontrado.
+<p align="center">
+Implementação do algoritmo <b>Rapidly-exploring Random Tree (RRT)</b> para planejamento de caminho em robótica móvel utilizando <b>Python</b>, <b>ROS 2</b> e <b>RoboticsAcademy (JdeRobot)</b>.
+</p>
+
+<p align="center">
+
+![Python](https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge&logo=python)
+
+![ROS2](https://img.shields.io/badge/ROS2-Humble-22314E?style=for-the-badge)
+
+![RoboticsAcademy](https://img.shields.io/badge/RoboticsAcademy-JdeRobot-orange?style=for-the-badge)
+
+![Status](https://img.shields.io/badge/Status-Concluído-success?style=for-the-badge)
+
+</p>
 
 ---
 
-## 📚 Sobre o algoritmo
+# 📖 Sobre o projeto
 
-O **RRT (Rapidly-exploring Random Tree)** é um algoritmo de planejamento baseado em amostragem amplamente utilizado em:
+Este projeto foi desenvolvido para a disciplina de **Robótica Móvel** e consiste na implementação do algoritmo **Rapidly-exploring Random Tree (RRT)** para planejamento de caminho em ambientes com obstáculos.
 
-- 🚗 Veículos autônomos
+O algoritmo recebe um mapa de ocupação, uma posição inicial (*Start*) e uma posição objetivo (*Goal*) e constrói uma árvore de exploração até encontrar uma rota livre de colisões.
+
+Após encontrar o caminho, o robô percorre os waypoints utilizando um controlador proporcional simples.
+
+---
+
+# 📑 Sumário
+
+- Sobre o algoritmo
+- Objetivos
+- Funcionamento
+- Estrutura do projeto
+- Resultados
+- Tecnologias utilizadas
+- Limitações
+- Autora
+
+---
+
+# 🌳 Sobre o algoritmo
+
+O **Rapidly-exploring Random Tree (RRT)** é um algoritmo de planejamento baseado em amostragem muito utilizado em:
+
 - 🤖 Robôs móveis
-- 🦾 Braços robóticos
+- 🚗 Veículos autônomos
 - 🚁 Drones
+- 🦾 Braços robóticos
 - 🚀 Sistemas de navegação
 
-Ao contrário de algoritmos clássicos como **A\***, o RRT **não necessita de um grafo previamente construído**. Ele cria uma árvore de exploração de forma incremental até encontrar uma rota livre de colisões.
+Ao contrário do algoritmo **A\***, o RRT não precisa de um grafo previamente construído.
+
+Ele explora o ambiente de forma incremental, criando uma árvore até encontrar uma rota viável.
 
 ---
 
-# 🎯 Objetivos do projeto
+# 🎯 Objetivos
 
-Implementar do zero uma versão didática do algoritmo RRT capaz de:
+O projeto implementa uma versão didática do algoritmo RRT capaz de:
 
-- Construir uma árvore de exploração;
-- Encontrar um caminho entre início e objetivo;
-- Evitar obstáculos durante o planejamento;
-- Reconstruir o caminho encontrado;
-- Simular a navegação do robô utilizando os waypoints gerados.
-
----
-
-# ⚙️ Funcionalidades implementadas
-
-✔ Geração de pontos aleatórios
-
-✔ Goal Biasing
-
-✔ Busca do nó mais próximo
-
-✔ Função Steer
-
-✔ Verificação de colisão
-
-✔ Reconstrução do caminho
-
-✔ Planejamento completo (plan)
-
-✔ Navegação do robô
-
-✔ Visualização da árvore RRT
-
-✔ Visualização do caminho final
+- ✔ Gerar pontos aleatórios no mapa
+- ✔ Utilizar Goal Biasing
+- ✔ Encontrar o nó mais próximo
+- ✔ Expandir a árvore utilizando a função Steer
+- ✔ Detectar colisões
+- ✔ Reconstruir o caminho encontrado
+- ✔ Simular a navegação do robô
 
 ---
 
-# 🧠 Estrutura do algoritmo
+# ⚙️ Funcionamento
 
-Cada nó da árvore é composto por:
-
-```python
-Node(
-    x,
-    y,
-    parent
-)
-```
-
-onde:
-
-- **x** → coordenada horizontal
-- **y** → coordenada vertical
-- **parent** → referência ao nó pai para reconstrução do caminho.
-
----
-
-# 🔄 Fluxo de execução
+O algoritmo segue as seguintes etapas:
 
 ```text
-Mapa de ocupação
+Mapa de Ocupação
         │
         ▼
-Inicialização do RRT
+Inicialização da árvore
         │
         ▼
-Amostragem aleatória
+Geração de ponto aleatório
 (sample_random_point)
         │
         ▼
@@ -97,7 +100,7 @@ Expansão da árvore
 (steer)
         │
         ▼
-Teste de colisão
+Verificação de colisão
 (is_collision_free)
         │
         ▼
@@ -118,35 +121,38 @@ Navegação do robô
 
 # 📂 Estrutura do projeto
 
-```
-global_navigation/
+```text
+rrt-global-navigation/
 
-├── academy.py              # Implementação principal
-├── academy.cpp             # Arquivo original do template
-├── mapa_com_arvore.png     # Árvore RRT e caminho encontrado
+├── academy.py
+├── mapa_com_arvore.png
 ├── README.md
 └── relatorio.pdf
 ```
 
 ---
 
-# 🖼 Resultado
+# 🖼️ Resultados
 
-Durante a execução são produzidas duas visualizações principais:
+Durante a execução são geradas duas visualizações principais.
 
-🟢 **Árvore RRT**
+## 🌳 Árvore de Exploração
 
-- representa toda a exploração realizada pelo algoritmo.
+Os segmentos verdes representam todos os nós adicionados durante a exploração do ambiente.
 
-🔴 **Caminho Final**
+## 🔴 Caminho Final
 
-- representa a sequência de nós utilizada pelo robô até o objetivo.
+Após alcançar o objetivo, o algoritmo reconstrói o caminho seguindo os ponteiros dos nós pais.
+
+<p align="center">
+<img src="mapa_com_arvore.png" width="850">
+</p>
 
 ---
 
 # 🚗 Navegação
 
-Após o planejamento, o robô percorre o caminho utilizando um controlador proporcional simples.
+Após o planejamento, o robô percorre o caminho encontrado.
 
 Para cada waypoint são calculados:
 
@@ -155,7 +161,7 @@ Para cada waypoint são calculados:
 - velocidade angular;
 - velocidade linear constante.
 
-O processo continua até atingir o objetivo.
+O processo continua até que todos os waypoints sejam alcançados.
 
 ---
 
@@ -165,41 +171,63 @@ O processo continua até atingir o objetivo.
 - NumPy
 - OpenCV
 - RoboticsAcademy
-- ROS 2
+- ROS 2 Humble
 - JdeRobot
 
 ---
 
-# 📈 Algoritmos implementados
+# 🧠 Estruturas implementadas
 
-- Random Sampling
-- Goal Biasing
-- Nearest Neighbor Search
-- Steer
-- Collision Checking
-- Path Reconstruction
+O projeto implementa as seguintes funções principais:
+
+- `sample_random_point()`
+- `find_nearest_node()`
+- `steer()`
+- `is_collision_free()`
+- `reconstruct_path()`
+- `plan()`
 
 ---
 
 # 📌 Limitações
 
-Esta implementação representa uma versão didática do algoritmo RRT.
+Esta implementação corresponde a uma versão didática do algoritmo.
 
-As seguintes simplificações foram adotadas:
+Foram adotadas algumas simplificações:
 
 - robô tratado como um ponto;
 - planejamento apenas em (x,y);
 - movimento holonômico;
-- ausência de dilatação dos obstáculos;
-- controlador de navegação simplificado.
+- ausência de dilatação de obstáculos;
+- controlador proporcional simplificado.
+
+Essas simplificações tornam o algoritmo mais adequado para fins educacionais.
 
 ---
 
-# 📷 Exemplo de saída
+# 📹 Demonstração
 
-<p align="center">
-  <img src="mapa_com_arvore.png" width="800">
-</p>
+O vídeo do projeto apresenta:
+
+- construção da árvore RRT;
+- caminho encontrado;
+- navegação do robô até o objetivo.
+
+> *(Adicione aqui um GIF da execução futuramente para deixar o repositório ainda mais completo.)*
+
+---
+
+# 📈 Resultado Obtido
+
+✔ Árvore RRT construída com sucesso.
+
+✔ Caminho livre de colisões encontrado.
+
+✔ Reconstrução automática da rota.
+
+✔ Navegação completa até o objetivo.
+
+✔ Visualização da árvore e do caminho final.
 
 ---
 
